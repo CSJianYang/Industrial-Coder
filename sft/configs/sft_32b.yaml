@@ -1,0 +1,48 @@
+# IndustrialCoder-32B SFT Config
+# DeepSpeed: ZeRO-3
+
+# === Model ===
+model_name_or_path: "/path/to/IndustrialCoder-Base"
+use_flash_attention: true
+
+# === Data ===
+data_path: "/path/to/training_data.npy"
+
+# === Output ===
+output_dir: "./output/industrialcoder_sft_32b"
+
+# === Training ===
+model_max_length: 16384
+truncate_source: false
+num_train_epochs: 1
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16
+per_device_eval_batch_size: 1
+
+learning_rate: 1.0e-5
+weight_decay: 0.01
+warmup_steps: 50
+lr_scheduler_type: "cosine"
+max_grad_norm: 1.0
+optim: "adamw_torch"
+
+# === Checkpoint & Logging ===
+save_strategy: "steps"
+save_steps: 200
+save_total_limit: 5
+logging_strategy: "steps"
+logging_steps: 1
+eval_strategy: "no"
+report_to: "tensorboard"
+
+# === Performance ===
+bf16: true
+tf32: true
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+dataloader_num_workers: 2
+include_num_input_tokens_seen: true
+
+# === DeepSpeed ===
+deepspeed: "configs/deepspeed/ds_zero3.json"
