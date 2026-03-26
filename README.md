@@ -29,7 +29,9 @@ Native long-context support up to **128K tokens**.
 
 | Model | Format | HuggingFace |
 |---|:---:|---|
+| InCoder-32B-Base | BF16 | [🤗 IndustrialCoder-Base](https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder-Base) |
 | InCoder-32B | BF16 / FP16 | [🤗 InCoder](https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder) |
+| InCoder-32B-Thinking | BF16 | [🤗 IndustrialCoder-Thinking](https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder-Thinking) |
 | InCoder-32B-FP8 | FP8 | [🤗 InCoder-32B-FP8](https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder-32B-FP8) |
 | InCoder-32B-AWQ-INT4 | AWQ INT4 | [🤗 InCoder-32B-AWQ-INT4](https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder-32B-AWQ-INT4) |
 | InCoder-32B-GPTQ-INT4 | GPTQ INT4 | [🤗 InCoder-32B-GPTQ-INT4](https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder-32B-GPTQ-INT4) |
@@ -199,3 +201,51 @@ model_name = "Multilingual-Multimodal-NLP/IndustrialCoder-32B-GPTQ-INT4"
 ## Disclaimer
 
 The model may generate incorrect or unsafe code. Always review and test outputs in a sandboxed environment before production use. Industrial code (RTL, embedded firmware, GPU kernels) requires expert human review before deployment.
+
+---
+
+## Fine-tuning
+
+We provide a lightweight SFT (Supervised Fine-Tuning) framework for InCoder-32B in the [`sft/`](./sft/) directory.
+
+### Setup
+
+```bash
+cd sft/
+pip install -r requirements.txt
+```
+
+### Data Preparation
+
+Prepare a JSONL file where each line is a JSON object with a `"messages"` field (ChatML format):
+
+```json
+{"messages": [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
+```
+
+Tokenize it to `.npy` format:
+
+```bash
+bash scripts/binarize_data.sh /path/to/data.jsonl /path/to/output /path/to/IndustrialCoder-Base 16384
+```
+
+### Training
+
+1. Edit `configs/sft_32b.yaml` — set `model_name_or_path`, `data_path`, and `output_dir`.
+2. Launch training:
+
+```bash
+bash start.sh
+# or directly:
+bash scripts/run_sft.sh configs/sft_32b.yaml
+```
+
+Multi-node training is supported via `MASTER_ADDR`, `WORLD_SIZE`, `RANK` environment variables.
+
+### Download Model
+
+```bash
+python download_model.py \
+    --repo_id Multilingual-Multimodal-NLP/IndustrialCoder-Base \
+    --local_dir /path/to/save/model
+```
