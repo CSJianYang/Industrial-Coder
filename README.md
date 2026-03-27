@@ -5,7 +5,11 @@
 **The first 32B code LLM purpose-built for industrial code intelligence**
 
 [![HuggingFace](https://img.shields.io/badge/🤗-Model%20Hub-yellow)](https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder)
+[![ModelScope](https://img.shields.io/badge/%F0%9F%A4%96%20ModelScope-pink)](https://modelscope.cn/models/Multilingual-Multimodal-NLP/IndustrialCoder)
 [![GitHub](https://img.shields.io/badge/GitHub-CSJianYang-black)](https://github.com/CSJianYang/Industrial-Coder)
+
+
+
 
 </div>
 
