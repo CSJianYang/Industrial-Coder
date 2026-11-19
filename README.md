@@ -253,3 +253,81 @@ python download_model.py \
     --repo_id Multilingual-Multimodal-NLP/IndustrialCoder-Base \
     --local_dir /path/to/save/model
 ```
+
+```
+@inproceedings{yang-etal-2026-incoder-thinking,
+    title = "{I}n{C}oder-32{B}-Thinking: Industrial Code World Model for Thinking",
+    author = "Yang, Jian  and
+      Zhang, Wei  and
+      Wu, Jiajun  and
+      Cheng, Junhang  and
+      Zheng, Tuney  and
+      Xu, Fanglin  and
+      Grant, William  and
+      Chai, Linzheng  and
+      Du, Yaxin  and
+      Li, Haau-Sing  and
+      LI, Yizhi  and
+      Xing, Yan  and
+      Hao, Chuan  and
+      Tao, Ran  and
+      Gong, Ruihao  and
+      Liu, Aishan  and
+      Li, Zhoujun  and
+      Tang, Mingjie  and
+      Lin, Chenghua  and
+      Chen, Siheng  and
+      Zhao, Xin  and
+      Liu, Xianglong  and
+      Zhou, Ming  and
+      Dai, Bryan  and
+      Lv, Weifeng",
+    editor = "Lee, Hung-Yi  and
+      Dev, Sunipa  and
+      Li, Junyi Jessy  and
+      Elliott, Desmond",
+    booktitle = "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing",
+    month = oct,
+    year = "2026",
+    address = "Budapest, Hungary",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.emnlp-main.1827/",
+    doi = "10.18653/2026.emnlp-main.1827",
+    pages = "41611--41628",
+}
+@article{yang-etal-2026-incoder,
+  title={InCoder-32B: Code Foundation Model for Industrial Scenarios},
+  author={
+    Jian Yang and
+    Wei Zhang and
+    Jiajun Wu and
+    Junhang Cheng and
+    Shawn Guo and
+    Haowen Wang and
+    Weicheng Gu and
+    Yaxin Du and
+    Joseph Li and
+    Fanglin Xu and
+    Yizhi Li and
+    Lin Jing and
+    Yuanbo Wang and
+    Yuhan Gao and
+    Ruihao Gong and
+    Chuan Hao and
+    Ran Tao and
+    Aishan Liu and
+    Tuney Zheng and
+    Ganqu Cui and
+    Zhoujun Li and
+    Mingjie Tang and
+    Chenghua Lin and
+    Wayne Xin Zhao and
+    Xianglong Liu and
+    Ming Zhou and
+    Bryan Dai and
+    Weifeng Lv
+  },
+  journal={arXiv preprint arXiv:2603.16790},
+  year={2026}
+}
+```
