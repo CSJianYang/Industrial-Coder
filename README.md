@@ -253,7 +253,7 @@ python download_model.py \
     --repo_id Multilingual-Multimodal-NLP/IndustrialCoder-Base \
     --local_dir /path/to/save/model
 ```
-
+The citations are listed below:
 ```
 @inproceedings{yang-etal-2026-incoder-thinking,
     title = "{I}n{C}oder-32{B}-Thinking: Industrial Code World Model for Thinking",
