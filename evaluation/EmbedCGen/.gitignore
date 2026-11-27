@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+.env.*
+/tools/
+/output_benchmark/
+/data/
+*.zip
+*.elf
