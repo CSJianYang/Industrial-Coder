@@ -25,14 +25,14 @@ Keep the Renode installation together so its platform descriptions can resolve t
 
 ## Run Core600
 
-Sign in with an account that has access to the Hugging Face dataset, then download and extract `EC-Coder_Core600.zip`. [Core600 dataset on Hugging Face](https://huggingface.co/datasets/Multilingual-Multimodal-NLP/EC-Coder-Core600)
+Browse the 600 tasks in `data/test.jsonl`. [Browse the test split](https://huggingface.co/datasets/Multilingual-Multimodal-NLP/EC-Coder-Core600/blob/main/data/test.jsonl)
 
-Set `CASES` to the `.cases.json` file with case-set ID `core600_contract_v2_600_hardening_tranche4_delta_lite_candidate_v1`. The submitted test set has IDs `790001` through `790600`. Its SHA-256 is `a804cd065c9e2f43c2d463103670448d39498687cbbc41631f67a8f8c3c247e0`.
+Download `evaluation/cases.json` for the evaluator and set `CASES` to its local path. The test set has case IDs `790001` through `790600`. The evaluator file SHA-256 is `a804cd065c9e2f43c2d463103670448d39498687cbbc41631f67a8f8c3c247e0`. [Download the evaluator input](https://huggingface.co/datasets/Multilingual-Multimodal-NLP/EC-Coder-Core600/resolve/main/evaluation/cases.json)
 
 The runner retains an older default data path from the source snapshot. Always pass `--cases` explicitly when evaluating the submitted set.
 
 ```bash
-CASES=/path/to/core600_contract_v2_600_hardening_tranche4_delta_lite_candidate_v1.cases.json
+CASES=/path/to/cases.json
 MODEL=your-model-id
 python -m scripts.check_core600_prompt_oracle_parity "$CASES"
 read -rsp 'Model API key ' SF_API_KEY
